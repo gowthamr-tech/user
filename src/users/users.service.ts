@@ -1,9 +1,20 @@
-import { Injectable } from '@nestjs/common';
+import { forwardRef, Inject, Injectable } from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
+import { InjectRepository } from '@nestjs/typeorm';
+import { User } from './entities/user.entity';
+import { Repository } from 'typeorm';
+import { OrgService } from 'src/org/org.service';
 
 @Injectable()
 export class UsersService {
+ constructor(
+    @InjectRepository(User)
+  // private userRepo:Repository<User>,
+         @Inject(forwardRef(()=>OrgService))
+            private orgService:OrgService
+    ){}
+
   create(createUserDto: CreateUserDto) {
     return 'This action adds a new user';
   }

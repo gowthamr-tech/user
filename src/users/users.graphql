@@ -1,0 +1,16 @@
+type User{
+  id:ID
+  first_name:String
+}
+
+input signUp{
+    id:ID
+    first_name:String
+}
+
+type Mutation{
+    signUp(sign:signUp):User
+}
+type Query{
+    users:[User]
+}

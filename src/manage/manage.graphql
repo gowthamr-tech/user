@@ -1,0 +1,24 @@
+type Manage {
+  # Example field (placeholder)
+  exampleField: Int
+}
+
+input CreateManageInput {
+  # Example field (placeholder)
+  exampleField: Int
+}
+
+input UpdateManageInput {
+  id: Int!
+}
+
+type Query {
+  manages: [Manage]!
+  manage(id: Int!): Manage
+}
+
+type Mutation {
+  createManage(createManageInput: CreateManageInput!): Manage!
+  updateManage(updateManageInput: UpdateManageInput!): Manage!
+  removeManage(id: Int!): Manage
+}

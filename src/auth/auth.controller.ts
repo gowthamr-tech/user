@@ -10,6 +10,7 @@ import {
 import { AuthService } from './auth.service';
 import { JwtAuthGuard } from './jwt-auth.guard';
 import { JwtService } from './jwt.service';
+import { Roles } from './roles.decorator';
 
 @Controller('auth')
 export class AuthController {
@@ -19,6 +20,7 @@ export class AuthController {
   ) {}
 
   @Post('login')
+  // @Roles()
   async login(@Body() req) {
     console.log('The Request Body is here', req);
     return this.jwtService.sign(req);
